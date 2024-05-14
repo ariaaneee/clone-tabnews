@@ -1,6 +1,6 @@
 import database from "infra/database.js";
 
-async function status(request, response) {
+export async function status(request, response) {
   const updatedAt = new Date().toISOString();
   const queryVersion = "SELECT version()";
   const queryMaxConnections =
@@ -22,5 +22,3 @@ async function status(request, response) {
     open_connections: openConnectionResponse.rows[0].open_connections,
   });
 }
-
-export default status;
